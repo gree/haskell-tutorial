@@ -1,0 +1,8 @@
+<h1>_{MsgTitle}
+
+Select Quest
+
+<ul>
+  $forall Quest level name _ <- quests
+    <li>
+      <a href=@{QuestR level}>#{level} #{name}

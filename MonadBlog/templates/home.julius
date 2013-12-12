@@ -1,0 +1,60 @@
+
+$(function() {
+  var $list = $('#list');
+
+  var getMore = function(callback) {
+    var count = $list.children().length;
+    if (count == 0) return;
+    var child = $list.children().first();
+    $.ajax({
+      url: 'getMore?from=' + count,
+      type: 'GET',
+      dataType: 'json',
+      success: function(articles) {
+        for (var i = 0; i < articles.length; i++) {
+          var article = articles[i];
+          var newChild = child.clone();
+          newChild.find('#date').text(article['date']);
+          newChild.find('#title').text(article['title']);
+          newChild.find('#text').text(article['text']);
+          $list.append(newChild);
+
+        }
+        if (parseInt($list.position().top + $list.height()) < parseInt($(window).height()) ) {
+          getMore(callback);
+        } else {
+          if (callback) callback(articles.length);
+        }
+      },
+      error: function(xmlHttpRequest, textStatus, errorThrown) {
+      }
+    });
+  };
+
+  var setupWayPoint = function(){
+    $list.waypoint(function(direction){
+      if (direction === 'down' || direction === 'right') {
+        $this = $(this);
+        $this.waypoint('disable');
+        getMore(function(more){
+          if (!more) {
+            $this.waypoint('destroy');
+          } else {
+            $this.waypoint('enable');
+            $.waypoints('refresh');
+          }
+        });
+      }
+    }, {
+      offset: 'bottom-in-view'
+    });
+  }
+
+  if (($list.position().top + $list.height()) < $(window).height()) {
+    getMore(function(){
+      setupWayPoint();
+    });    
+  } else {
+    setupWayPoint();
+  }
+});

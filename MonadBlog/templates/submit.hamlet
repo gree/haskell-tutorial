@@ -1,0 +1,6 @@
+<div .row>
+  <h1>MonadBlog
+<div .row>
+  <form method=POST action=@{SubmitR} enctype=#{enctype}>
+    ^{formWidget}
+    <button .btn>Submit

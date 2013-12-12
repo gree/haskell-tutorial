@@ -1,0 +1,20 @@
+Default: &defaults
+  database: MonadBlog.sqlite3
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: MonadBlog_test.sqlite3
+  <<: *defaults
+
+Staging:
+  database: MonadBlog_staging.sqlite3
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: MonadBlog_production.sqlite3
+  poolsize: 100
+  <<: *defaults

@@ -1,0 +1,13 @@
+<h1>_{MsgTitle}
+
+Sample Yesod application.
+<p>
+
+$if loggedIn
+  <a href=@{SelectR}>Enter
+  <p>
+  <a href=@{InviteR}>Invite your friends
+  <p>
+  <a href="/auth/logout">Logout
+$else
+  <a href="/auth/login">Login

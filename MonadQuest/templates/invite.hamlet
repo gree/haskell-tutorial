@@ -1,0 +1,7 @@
+<h1>_{MsgTitle}
+
+Invite Friends
+
+<ul>
+  $forall name <- friends
+    <li>#{name}

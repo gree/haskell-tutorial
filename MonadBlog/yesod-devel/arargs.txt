@@ -1,0 +1,1 @@
+["-r","-s","-c","dist/build/libHSMonadBlog-0.0.0.a","dist/build/Application.o","dist/build/Foundation.o","dist/build/Import.o","dist/build/Model.o","dist/build/Settings.o","dist/build/Settings/StaticFiles.o","dist/build/Settings/Development.o","dist/build/Handler/Home.o","dist/build/Handler/Submit.o","dist/build/Handler/GetMore.o"]

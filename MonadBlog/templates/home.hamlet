@@ -1,0 +1,16 @@
+<div .row>
+  <a href=@{SubmitR}>Submit new article
+  $if isJust mAuthId
+    <a href=@{AuthR LogoutR}>Logout
+<div .row>
+  <h1>MonadBlog
+<p>
+<div #list>
+  $forall Entity _ (Article title date text) <- result
+    <div .row>
+      <p #date>#{show date}
+      <h2 #title>#{title}
+      <p #text>#{Textarea text}
+<div .row>
+  <p><i>[No More]
+<p>

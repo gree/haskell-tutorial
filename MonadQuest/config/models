@@ -1,0 +1,26 @@
+User
+    ident Text
+    password Text Maybe
+    UniqueUser ident
+    deriving Typeable
+
+Email
+    email Text
+    user UserId Maybe
+    verkey Text Maybe
+    UniqueEmail email
+
+UserState
+    user User
+    level Int default=1
+    progress Int default=0
+    stamina Int default=100
+    UniqueState user
+
+Quest
+    level Int
+    name Text
+    length Int
+    UniqueQuest level
+
+ -- By default this file is used in Model.hs (which is imported by Foundation.hs)

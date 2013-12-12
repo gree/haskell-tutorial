@@ -1,0 +1,9 @@
+<h1>_{MsgTitle}
+
+$if isBoss
+  Boss battle
+  <a href="/quest/#{questLv}">Battle!
+
+$else
+  Progress: #{uprogress} / #{qlen}  Stamina: #{ustamina}
+  <a href="/quest/#{questLv}">Go!
